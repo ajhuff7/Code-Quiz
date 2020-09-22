@@ -1,3 +1,8 @@
+#body {
+    background-image: url(assets\images\mtsbg1.jpg); 
+    background-size: cover; 
+}
+
 .container{
     margin: auto;
     width: 100%;
@@ -9,30 +14,27 @@
     margin-bottom: 10px;
     font-size: 50px;
   }
-
-  .clock{
-    font-size: 100px;
-  }
-  
   
   #main{
     margin-bottom: 40px;
-    font-size: 50px;
+    font-size: 25px;
     width:100%;
     height: 25px;
   }
   
   button {
-    padding: 50px;
+    padding: 30px;
     margin-right: 50px;
     cursor: pointer;
     border-radius: 12px;
     font-size: 20px;
     text-align: center;
-    background-color: #62abb1;
+    background-color: #8d365f;
     color: white;
   }
 
   .boxes {
     text-align: center;
   }
+  
+ 
