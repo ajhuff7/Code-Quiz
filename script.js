@@ -2,31 +2,35 @@
 
 var timerEl1 = document.getElementById("countdown");
 var timerEl2 = document.getElementById("clock");
-
+var timeLeft = 90
+var scoreCard = 0
 
 function finalScore();{
 
 
 }
 
-
 function playGame(); {
-    var timeLeft = 90;
     
-    var timeInterval = setInterval(function() {
-      timerEl.textContent = timeLeft + " remaining!!";
-      timeLeft--;
-  
-      if (timeLeft === 0) {
-        timerEl.textContent = "";
-        clearInterval(timeInterval);
-        finalScore();
-      }
+    
+}
 
-      else 
-  
-    }, 1000); 
-  }
+function gameClock();{
+    var timeInterval = setInterval(function() {
+        timerEl2.textContent = timeLeft + " remaining!!";
+        timeLeft--;
+    
+        if (timeLeft === 0) {
+          timerEl.textContent = "";
+          clearInterval(timeInterval);
+          finalScore();
+        }
+
+        else playGame();
+    
+    }, 1000);
+
+}
 
 
 function readySet() {
@@ -39,7 +43,7 @@ function readySet() {
       if (timeLeft === 0) {
         timerEl.textContent = "";
         clearInterval(timeInterval);
-        playGame();
+        gameClock();
       }
 
     }, 1000); 
