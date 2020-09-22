@@ -9,64 +9,49 @@ var option3 = document.getElementById("option3");
 var option4 = document.getElementById("option4");
 var timeLeft = 90
 var scoreCard = 0
-var answer = ["a", "c", "d", "d", "b", "a", "d", "b", "b", "c"];
-function finalScore();{
+var answerKey = ["a", "c", "d", "d", "b", "a", "d", "b", "b", "c"];
+var playerAnswers = [];
+var playersChoice = [
+    option1 = "a",
+    option2 = "b", 
+    option3 = "c",
+    option4 = "d"
+];
 
+// function finalScore();{
 
-}
-
-function playGame(); {
     
-    option1.addEventListener("click", function() {
-        if (answers[0] == "a" || ){
-        count++;
-        option1.setAttribute("correct");
-        }
-        else (timeLeft - 5);{  
-        option1.setAttribute("wrong");
-        }
-      });
+// }
 
-      option2.addEventListener("click", function() {
-        if (answers[0] == "a"){
-        count++;
-        option2.setAttribute("correct");
+function playGame(){
+    
+    boxes.addEventListener("click", function(event) {
+        for (var i = 0; i < playerAnswers.length; i++);{
+        playerAnswers.push("playersChoice")
         }
-        else (timeLeft - 5);{  
-        option2.setAttribute("wrong");
-        }
-      });
 
-      option3.addEventListener("click", function() {
-        if (answers[0] == "a"){
-        count++;
-        option3.setAttribute("correct");
+        if (playerAnswers[0] === answerKey[0]){
+            scoreCard++;
+            event.currentTarget.setAttribute(
+                "background-color: green"
+              );
         }
-        else (timeLeft - 5);{  
-        option3.setAttribute("wrong");
+        else (timeLeft - 5);{ 
+            event.currentTarget.setAttribute(
+                "background-color: red"
+              );
         }
-      });
-
-      option4.addEventListener("click", function() {
-        if (answers[0] == "a"){
-        count++;
-        option4.setAttribute("correct");
-        }
-        else (timeLeft - 5);{  
-        option4.setAttribute("wrong");
-        }
-      });
-
+    });
 
 }
 
-function gameClock();{
+function gameClock(){
     var timeInterval = setInterval(function() {
-        timerEl2.textContent = timeLeft + " remaining!!";
+        timerEl2.textContent = timeLeft + " seconds left...";
         timeLeft--;
     
         if (timeLeft === 0) {
-          timerEl.textContent = "";
+          timerEl2.textContent = "";
           clearInterval(timeInterval);
           finalScore();
         }
@@ -78,15 +63,15 @@ function gameClock();{
 }
 
 
-function readySet() {
-    var timeLeft = 7;
+function readySet(){
+    var timeLeft = 5;
   
     var timeInterval = setInterval(function() {
-      timerEl.textContent = timeLeft + " seconds until Quiz starts";
+      timerEl1.textContent = timeLeft + " seconds until Quiz starts";
       timeLeft--;
   
       if (timeLeft === 0) {
-        timerEl.textContent = "";
+        timerEl1.textContent = "";
         clearInterval(timeInterval);
         gameClock();
       }

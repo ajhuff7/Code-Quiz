@@ -1,0 +1,38 @@
+.container{
+    margin: auto;
+    width: 100%;
+    height: 500px;
+    text-align: center;
+  }
+  
+.challenge{
+    margin-bottom: 10px;
+    font-size: 50px;
+  }
+
+  .clock{
+    font-size: 100px;
+  }
+  
+  
+  #main{
+    margin-bottom: 40px;
+    font-size: 50px;
+    width:100%;
+    height: 25px;
+  }
+  
+  button {
+    padding: 50px;
+    margin-right: 50px;
+    cursor: pointer;
+    border-radius: 12px;
+    font-size: 20px;
+    text-align: center;
+    background-color: #62abb1;
+    color: white;
+  }
+
+  .boxes {
+    text-align: center;
+  }
