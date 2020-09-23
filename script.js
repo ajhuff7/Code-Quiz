@@ -1,16 +1,19 @@
 
-var starter = document.getElementById("starter");
-var timerEl = document.getElementById("clock");
-var questions = document.getElementById("questionsCard");
-var score = document.getElementById("scoreCard");
-var option1 = document.getElementById("option1");
-var option2 = document.getElementById("option2");
-var option3 = document.getElementById("option3");
-var option4 = document.getElementById("option4");
-var timeLeft = 90
+let start = document.querySelector("#start")
+let timerEl = document.getElementById("clock");
+let questions = document.getElementById("questionsCard");
+let boxes = document.getElementById("answersBox");
+let option1 = document.getElementById("option1");
+let option2 = document.getElementById("option2");
+let option3 = document.getElementById("option3");
+let option4 = document.getElementById("option4");
 
 
-let questions = [
+let timeLeft = 90
+let currentQuestion = 0
+
+
+let questionsAnswers = [
   {
       title: "1. Megan's real last name is...",
       choices: ["A) Pete ", "B) Jackson", "C) Thee", "D) Marino"],
@@ -56,90 +59,56 @@ let questions = [
 ]
 
 
-var answerGuide = [
-  answerList1, 
-  answerList2, 
-  answerList3, 
-  answerList4, 
-  answerList5, 
-  answerList6, 
-  answerList7, 
-  answerList8, 
 
-]
-
-
-function finalScore();{
-  questionCard.textContent = timeLeft
-  localStorage.setItem("score", timeLeft);
-    
-
+/*functions*/
+function showCurrentQuestion() {
+  questions.style.display =  questionsAnswers[currentQuestion].title
+  options1.style.display = questionsAnswers[currentQuestion].choices[0]
+  options2.style.display = questionsAnswers[currentQuestion].choices[1]
+  options3.style.display = questionsAnswers[currentQuestion].choices[2]
+  options4.style.display = questionsAnswers[currentQuestion].choices[3]
+  console.log(questionsAnswers[currentQuestion].title)
 }
 
-function correctAnswer(){
-
+/*functions*/
+function checkFinished() {
+  //check to see if done
+  if (currentQuestion === 8) return true
+  return false
 }
 
-function wrongAnswer(){
-
+function finish() {
+  console.log("Game Over!")
+  questions.style.display = "none"
+  document.body.textContent = "Game Over!"
+  clearInterval(timeInterval);
+  questions.textContent = timeLeft
+  localStorage.setItem("Hi-Score", timeLeft);
 }
 
+/*event listeners*/
 
-function playGame(){
-    
-    option1.addEventListener("click", function(event) {
-        if (event.currentTarget == true);{ 
-          correctAnswer();
-        }
-        elseif (event.currentTarget == false);{
-          (timeLeft - 5);
-          wrongAnswer(); 
-        }
-    })
+//when user clicks anywhere in answers box
+boxes.addEventListener("click", function (event) {
+  //check that user clicked on button
+  if (event.target.tagName === "BUTTON") {
+      //show correct / incorrect answer
+      console.log("Answer: " + (event.target.textContent === questions[currentQuestion].answer))
+      console.log("\n")
 
-    option2.addEventListener("click", function(event) {
-      if (event.currentTarget == true);{ 
-        correctAnswer();
-      }
-      elseif (event.currentTarget == false);{
-        (timeLeft - 5);
-        wrongAnswer(); 
-      }
-  })
+      //increase question counter
+      currentQuestion++
 
-    option3.addEventListener("click", function(event) {
-      if (event.currentTarget == true);{ 
-        correctAnswer();
-      }
-      elseif (event.currentTarget == false);{
-        (timeLeft - 5);
-        wrongAnswer(); 
-      }
-  })
+      //go to next question or done
+      let finished = checkFinished()
+      if (finished) finish()
+      else showCurrentQuestion()
+  }
+})
 
-    option4.addEventListener("click", function(event) {
-      if (event.currentTarget == true);{ 
-        correctAnswer();
-      }
-      elseif (event.currentTarget == false);{
-        (timeLeft - 5);
-        wrongAnswer(); 
-      }
-  })
-
-
-
-function startGame() {
-  questionCard.textContent = questionList[0];
-  option1.textContent = answersGuide[0, 0];
-  option2.textContent = answersGuide[0, 1];
-  option3.textContent = answersGuide[0, 2];
-  option4.textContent = answersGuide[0, 3];
-  i++
-}
-
-
-function readySet() {
+start.addEventListener("click", function (event) {
+  start.style.display = "none"
+  quesions.style.display = "block"
   timeInterval = setInterval(function() {
     timerEl.textContent = timeLeft + " seconds left...";
     timeLeft--;
@@ -147,15 +116,13 @@ function readySet() {
     if (timeLeft === 0) {
       timerEl.textContent = "";
       clearInterval(timeInterval);
-      finalScore();
+      finish();
     }   
   }, 1000);
-}
 
-starter.addEventListener("click", function(event) {
-
-startGame();
-readySet();
-playGame();
-
+  //show first question
+  showCurrentQuestion()
 })
+
+/*entry point*/
+questions.style.display = "none"
