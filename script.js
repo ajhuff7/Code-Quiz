@@ -10,81 +10,51 @@ var option4 = document.getElementById("option4");
 var timeLeft = 90
 
 
-var questionsList = [
-  "1. Megan's real last name is...",
-  "2. She was born in...",
-  "3. Her mother was also a rapper under the name...",
-  "4. In college she studied...",
-  "5. Megan refers to her fans as...",
-  "6. Megan's alter ego is..",
-  "7. Which of these is not one of Megan's biggest influences:",
-  "8. Megan's year of birth was...",
-];
+let questions = [
+  {
+      title: "1. Megan's real last name is...",
+      choices: ["A) Pete ", "B) Jackson", "C) Thee", "D) Marino"],
+      answer: "A) Pete",
+  },
+  {
+      title: "2. She was born in...",
+      choices: ["A) New York", "B) Alabama", "C) Texas", "D) Ohio"],
+      answer: "C) Texas",
+  },
+  {
+      title: "3. Her mother was also a rapper under the name...",
+      choices: ["A) MC Lyte", "B) Lil Filly", "C) Susie P", "D) Holly Wood"],
+      answer: "D) Holly Wood",
+  },
+  {
+      title: "4. In college she studied...",
+      choices: ["A) Musical Theater", "B) Business and Finance", "C) Health Administration", "D) Hotel Management"],
+      answer: "C) Health Administration",
+  },
+{
+      title: "5. Megan refers to her fans as...",
+      choices: ["A) Thee Stable", "B) Hotties", "C) Studs", "D) Meganites"],
+      answer: "B) Hotties",
+  },
+  {
+      title: "6. Megan's alter ego is..",
+      choices: ["A) Tina Snow", "B) Mercy Neaux", "C) Jovon Truth", "D) Boss Ratchet"],
+      answer: "A) Tina Snow",
+  },
 
-
-var answerList1 = [
-  "A) Pete" == true, 
-  "B) Jackson" == false,
-  "C) Thee" == false,
-  "D) Marino" == false,
-
-]
-
-var answerList2 = [
-  "A) New York" == false,
-  "B) Alabama" == false,
-  "C) Texas" == true,
-  "D) Ohio" == false,  
-
-]
-
-var answerList3 = [
-  "A) MC Lyte" == false,
-  "B) Lil Filly" == false,
-  "C) Susie P" == false,
-  "D) Holly Wood" == true,
-
-]
-
-var answerList4 = [
-  "A) Musical Theater" == false,
-  "B) Business and Finance" == false,
-  "C) Health Administration" == true,
-  "D) Hotel Management" == false,
-  
-]
-
-var answerList5 = [
-  "A) Thee Stable" == false,
-  "B) Hotties" == true,
-  "C) Studs" == false,
-  "D) Meganites" == false,
-  
-]
-
-var answerList6 = [
-  "A) Tina Snow" == true,
-  "B) Mercy Neaux" == false,
-  "C) Jovon Truth" == false,
-  "D) Boss Ratchet" == false,
-  
-]
-
-var answerList7 = [
-  "A) Beyonce" == false, 
-  "B) Three 6 Mafia" == false,
-  "C) Pimp C" == false,
-  "D) Queen Latifah" == true,
-  
-]
-
-var answerList8 = [
-"A) 1996" == false,
-"B) 1997" == false,
-"C) 1995" == true,
-"D) 1993" == false,
+{
+      title: "7. Which of these is not one of Megan's biggest influences:",
+      choices: ["A) Beyonce", "B) Three 6 Mafia", "C) Pimp C", "D) Queen Latifah"],
+      answer: "D) Queen Latifah",
+  },
+  {
+      title: "8. Megan's year of birth was...",
+      choices: ["A) 1996", "B) 1997", "C) 1995", "D) 1993"],
+      answer: "C) 1995",
+  },
 
 ]
+
 
 var answerGuide = [
   answerList1, 
