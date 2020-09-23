@@ -62,11 +62,11 @@ let questionsAnswers = [
 
 /*functions*/
 function showCurrentQuestion() {
-  questions.style.display =  questionsAnswers[currentQuestion].title
-  options1.style.display = questionsAnswers[currentQuestion].choices[0]
-  options2.style.display = questionsAnswers[currentQuestion].choices[1]
-  options3.style.display = questionsAnswers[currentQuestion].choices[2]
-  options4.style.display = questionsAnswers[currentQuestion].choices[3]
+  questions.textContent =  questionsAnswers[currentQuestion].title
+  option1.textContent = questionsAnswers[currentQuestion].choices[0]
+  option2.textContent = questionsAnswers[currentQuestion].choices[1]
+  option3.textContent = questionsAnswers[currentQuestion].choices[2]
+  option4.textContent = questionsAnswers[currentQuestion].choices[3]
   console.log(questionsAnswers[currentQuestion].title)
 }
 
@@ -79,7 +79,7 @@ function checkFinished() {
 
 function finish() {
   console.log("Game Over!")
-  questions.style.display = "none"
+  questions.textContent.display = "none"
   document.body.textContent = "Game Over!"
   clearInterval(timeInterval);
   questions.textContent = timeLeft
@@ -93,7 +93,7 @@ boxes.addEventListener("click", function (event) {
   //check that user clicked on button
   if (event.target.tagName === "BUTTON") {
       //show correct / incorrect answer
-      console.log("Answer: " + (event.target.textContent === questions[currentQuestion].answer))
+      console.log("Answer: " + (event.target.textContent === questionsAnswers[currentQuestion].answer))
       console.log("\n")
 
       //increase question counter
@@ -108,7 +108,7 @@ boxes.addEventListener("click", function (event) {
 
 start.addEventListener("click", function (event) {
   start.style.display = "none"
-  quesions.style.display = "block"
+  questions.style.display = "block"
   timeInterval = setInterval(function() {
     timerEl.textContent = timeLeft + " seconds left...";
     timeLeft--;
