@@ -1,7 +1,6 @@
 
 
-var timerEl1 = document.getElementById("countdown");
-var timerEl2 = document.getElementById("clock");
+var timerEl = document.getElementById("clock");
 var boxes = document.getElementById("boxes");
 var option1 = document.getElementById("option1");
 var option2 = document.getElementById("option2");
@@ -45,38 +44,22 @@ function playGame(){
 
 }
 
-function gameClock(){
+function readySet(){
+  starter.addEventListener("click", function(event) {
+    
     var timeInterval = setInterval(function() {
-        timerEl2.textContent = timeLeft + " seconds left...";
+        timerEl.textContent = timeLeft + " seconds left...";
         timeLeft--;
     
         if (timeLeft === 0) {
-          timerEl2.textContent = "";
+          timerEl.textContent = "";
           clearInterval(timeInterval);
           finalScore();
         }
-
+        
         else playGame();
-    
-    }, 1000);
-
-}
-
-
-function readySet(){
-    var timeLeft = 5;
-  
-    var timeInterval = setInterval(function() {
-      timerEl1.textContent = timeLeft + " seconds until Quiz starts";
-      timeLeft--;
-  
-      if (timeLeft === 0) {
-        timerEl1.textContent = "";
-        clearInterval(timeInterval);
-        gameClock();
-      }
-
-    }, 1000); 
+      }, 1000);
+    });
   }
 
   readySet();
