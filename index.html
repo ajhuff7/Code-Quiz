@@ -9,37 +9,30 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="jumbotron">
+  <div class="jumbotron bg-transparent">
     <h1 class="display-4">Test Your Megan Thee Stallion Knowledge!</h1>
     <div class= "clock"></div>
     <hr class="my-4">
-    <button class="btn btn-secondary btn-lg" href="#" role="button">START</button>
+    <button class="btn btn-secondary btn-lg" id="starter" href="#" role="button">START</button>
   </div>
 
-
-  <div class="card" style="width: 18rem;">
-    <img class="card-img-top" src="..." alt="Megan Thee Stallion">
+  <section class="card text-center hide" id="questions">
     <div class="card-body">
-      <p class="card-text font-size: 30px">You Don't Know Megan</p>
-    </div>
-  </div>"
-
-
-  <section class="questions hide">
-
-
-    <div class="boxes">
-      <button id="option1">Option1</button>
-      <button id="option2">Option2</button>
-      <button id="option3">Option3</button>
-      <button id="option4">Option4</button>
+      <h3 class="card-title" id="questionsCard"></h3>
     </div>
 
+    <div id="boxes">
+      <button class="btnA" id="option1">1</button>
+      <button class="btnB" id="option2">2</button>
+      <button class="btnC" id="option3">3</button>
+      <button class="btnD" id="option4">4</button>
+    </div>
   </section>
 
-  <div class="final">
-
-
+  <div class="card text-center hide" id="final">
+    <div class="card-body">
+      <h3 class="card-title">FINISHED!</h3>
+    </div>
   </div>
 
 
