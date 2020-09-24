@@ -11,17 +11,21 @@
 <body>
   <div class="jumbotron bg-transparent">
     <h1 class="display-4">Test Your Megan Thee Stallion Knowledge!</h1>
-    <div class= "clock" id="clock"></div>
-    <hr class="my-4">
     <button class="btn btn-secondary btn-lg" id="start" href="#" role="button">START</button>
   </div>
-
-  <section class="card text-center hide" id="questions">
+  
+  <form id="highScore">Initials: <input type="text" name="intials">
+  <input class="btn btn-secondary btn-lg" type="button" value="Submit">
+  </form>
+  
+  
+  <section class="card text-center hide bg-transparent" id="questions">
     <div class="card-body">
       <h3 class="card-title" id="questionsCard"></h3>
     </div>
+  
 
-    <div id="answersBox">
+    <div id="answersBox" class="bg-transparent">
       <button class="btnA" id="option1">1</button>
       <button class="btnB" id="option2">2</button>
       <button class="btnC" id="option3">3</button>

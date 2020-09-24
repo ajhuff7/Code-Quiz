@@ -1,24 +1,38 @@
-#starter {
-
-  height: 100px;
-  width: 100px;
-  border-radius: 25px;
-  font-size: 25px;
-  text-align: center;
-  background-color: #b46eae;
-  color: white;
-  border-style: groove;
-  border-color: rgb(61, 39, 52);
+body {
+  background: url(assets/images/mtsbg1.jpg) center center no-repeat;
 }
 
+.jumbotron {
+  text-align: center;
+  border-color: bg-transparent;
+}
+
+.h1 {
+  border: none
+}
+
+.card-body {
+margin: 10px;
+}
+
+#answersBox {
+  border: none
+}
+
+#questions {
+  border: none
+}
+
+
 button {
-  padding: 75px;
+  padding: 50px;
   margin-bottom: 10px;
   cursor: pointer;
+  width: 20%;
   border-radius: 12px;
   font-size: 20px;
   text-align: center;
-  background-color: #f0a6c8;
+  background-color: #b8688d;
   color: white;
   border-style: groove;
   border-color: rgb(61, 39, 52);
@@ -26,4 +40,9 @@ button {
 
 .boxes {
   text-align: center;
+}
+
+#highScore {
+  text-align: center;
+  border-radius: 12px;
 }

@@ -1,13 +1,14 @@
 
 let start = document.querySelector("#start")
-let timerEl = document.getElementById("clock");
+let timerEl = document.getElementById("start");
 let questions = document.getElementById("questionsCard");
 let boxes = document.getElementById("answersBox");
+let highScore = document.getElementById("highScore"); 
 let option1 = document.getElementById("option1");
 let option2 = document.getElementById("option2");
 let option3 = document.getElementById("option3");
 let option4 = document.getElementById("option4");
-
+let timeInterval;
 
 let timeLeft = 90
 let currentQuestion = 0
@@ -17,43 +18,43 @@ let questionsAnswers = [
   {
       title: "1. Megan's real last name is...",
       choices: ["A) Pete ", "B) Jackson", "C) Thee", "D) Marino"],
-      answer: "A) Pete",
+      answer: "A) Pete"
   },
   {
       title: "2. She was born in...",
       choices: ["A) New York", "B) Alabama", "C) Texas", "D) Ohio"],
-      answer: "C) Texas",
+      answer: "C) Texas"
   },
   {
       title: "3. Her mother was also a rapper under the name...",
       choices: ["A) MC Lyte", "B) Lil Filly", "C) Susie P", "D) Holly Wood"],
-      answer: "D) Holly Wood",
+      answer: "D) Holly Wood"
   },
   {
       title: "4. In college she studied...",
-      choices: ["A) Musical Theater", "B) Business and Finance", "C) Health Administration", "D) Hotel Management"],
-      answer: "C) Health Administration",
+      choices: ["A) Drama/Musical Theater", "B) Business and Finance", "C) Health Administration", "D) Hotel Management"],
+      answer: "C) Health Administration"
   },
 {
       title: "5. Megan refers to her fans as...",
       choices: ["A) Thee Stable", "B) Hotties", "C) Studs", "D) Meganites"],
-      answer: "B) Hotties",
+      answer: "B) Hotties"
   },
   {
       title: "6. Megan's alter ego is..",
       choices: ["A) Tina Snow", "B) Mercy Neaux", "C) Jovon Truth", "D) Boss Ratchet"],
-      answer: "A) Tina Snow",
+      answer: "A) Tina Snow"
   },
 
 {
       title: "7. Which of these is not one of Megan's biggest influences:",
       choices: ["A) Beyonce", "B) Three 6 Mafia", "C) Pimp C", "D) Queen Latifah"],
-      answer: "D) Queen Latifah",
+      answer: "D) Queen Latifah"
   },
   {
       title: "8. Megan's year of birth was...",
       choices: ["A) 1996", "B) 1997", "C) 1995", "D) 1993"],
-      answer: "C) 1995",
+      answer: "C) 1995"
   },
 
 ]
@@ -79,10 +80,17 @@ function checkFinished() {
 
 function finish() {
   console.log("Game Over!")
-  questions.textContent.display = "none"
-  document.body.textContent = "Game Over!"
+  highScore.style.display;
+  highScore.setAttribute( "style", 
+  "padding: 50px;", 
+  "border-radius: 12px;", 
+  "font-size: 75px;", 
+  "text-align: center;", 
+  "color: white;",
+  );
   clearInterval(timeInterval);
-  questions.textContent = timeLeft
+  
+  localStorage.setItem("Player", highScore);
   localStorage.setItem("Hi-Score", timeLeft);
 }
 
@@ -93,21 +101,28 @@ boxes.addEventListener("click", function (event) {
   //check that user clicked on button
   if (event.target.tagName === "BUTTON") {
       //show correct / incorrect answer
+      if (event.target.textContent === questionsAnswers[currentQuestion].answer){
       console.log("Answer: " + (event.target.textContent === questionsAnswers[currentQuestion].answer))
       console.log("\n")
 
       //increase question counter
       currentQuestion++
+      }
+      else (timeLeft = timeLeft - 5)
+      console.log("Answer: " + (event.target.textContent === questionsAnswers[currentQuestion].answer))
+      console.log("\n")
 
+      //increase question counter
+      currentQuestion++
+      }
       //go to next question or done
       let finished = checkFinished()
       if (finished) finish()
       else showCurrentQuestion()
-  }
-})
+    })
+
 
 start.addEventListener("click", function (event) {
-  start.style.display = "none"
   questions.style.display = "block"
   timeInterval = setInterval(function() {
     timerEl.textContent = timeLeft + " seconds left...";
@@ -126,3 +141,4 @@ start.addEventListener("click", function (event) {
 
 /*entry point*/
 questions.style.display = "none"
+highScore.style.display = "none"
