@@ -31,7 +31,7 @@ A multiple choice timed quiz engine with interactive features. It utilizes the B
 - Functional Start button and Countdown timer.
 
 - Active event listeners on answer buttons.
-  ![event_listener](assets\images\eventlistener.JPG)
+  ![eventlistener](assets/images/eventlistener.JPG)
 
 - And action buttons arranged in a box container...
   ![boxes](assets/images/boxes.JPG)
