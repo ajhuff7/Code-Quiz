@@ -1,42 +1,82 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Stallion Quiz</title>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-  <link rel="stylesheet" href="style.css">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Megan Thee Stallion Quiz</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet"> 
 </head>
-<body>
-  <header class="jumbotron bg-transparent">
-    <h1 class="display-4">Test Your Megan Thee Stallion Knowledge!</h1>
-    <button class="btn btn-secondary btn-lg" id="start" href="#" role="button">START</button>
-  </header>
-  
-  <form id="highScore">Initials: <input type="text" name="intials">
-  <input class="btn btn-secondary btn-lg" type="button" value="Submit">
-  </form>
-  
-  
-  <section class="card text-center hide bg-transparent" id="questions">
-    <div class="card-body">
-      <h3 class="card-title" id="questionsCard"></h3>
-    </div>
-  
+  <body>
+    <header>
+        <h3><span class="timer text-white">Time Left: <span id="timerEl"></span></span></h3>
+        <br>
+        <br>
+        <button type="button" class="button glow-button" id="highScores">High Scores</button>
+    </nav>
+    <main class="container">
+        <div class="row">
+            <div class="col d-flex">
+                <div class="card text-center flex bg-transparent" id="start">
+                    <div class="card-body">
+                        <h2 class="card-text text-white">Test Your Megan Thee Stallion Knowledge!</h2>
+                        <p>Can you answer all 8 questions in 60 seconds?</p>
+                        <p>Answer correctly and you earn a point!</p>
+                        <p>Answer incorrectly and you lose 5 seconds off the clock!</p>
+                        <button type="button" class="button glow-button" id="startButton">START</button>
+                    </div>
+                </div>
+                <div class="card text-center bg-transparent"  id="questionArea">
+                    <div class="card-body">
+                        <h4 class="card-text text-white" id="question"></h4>
+                        <br>
+                        <div class="choices"><button type="button" class="button glow-button" id="A">Answer A</button></div>
+                        <br>
+                        <div class="choices"><button type="button" class="button glow-button" id="B">Answer B</button></div>
+                        <br>
+                        <div class="choices"><button type="button" class="button glow-button" id="C">Answer C</button></div>
+                        <br>
+                        <div class="choices"><button type="button" class="button glow-button" id="D">Answer D</button></div>
+                        <br>
+                        <p class="card-text text-white" id="checkAnswers"></p>
+                    </div>
+                </div>
 
-    <div id="answersBox" class="bg-transparent">
-      <button class="btnA" id="option1">1</button>
-      <button class="btnB" id="option2">2</button>
-      <button class="btnC" id="option3">3</button>
-      <button class="btnD" id="option4">4</button>
-    </div>
-  </section>
+                <div class="card text-center bg-transparent" id="scoreChart">
+                    <div class="card-body">
+                        <h5 class="card-title text-white">High Score</h5>
+                        <p class="card-text text-center">Final Score <span id=score></span></p>
+                        <form class="form-inline">
+                            <div class="mx-auto">
+                                <div class="form-group mx-sm-3 mb-2">
+                                    <label for="name" class="sr-only"></label>
+                                    <input type="text" class="form-control" id="player" placeholder="Name">
+                                </div>
+                                <div class="text-center">
+                                    <button class="button" id="nameEnter">Submit</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
 
+                <div class="card text-center bg-transparent" id="highScore">
+                    <div class="card-body text-center">
+                        <h5 class="card-title text-center">High Scores</h5>
+                        <ul class="list-group" id="highScorers">
 
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
-  <script src="script.js"></script>
-</body>
+                        </ul>
+                        <button class="button" id="back">Back</button>
+                    </div>
+                </div>                          
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+  </body>
 </html>

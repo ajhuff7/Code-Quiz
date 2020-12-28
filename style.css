@@ -1,48 +1,46 @@
 body {
-  background: url(assets/images/mtsbg1.jpg) center center no-repeat;
+    background: url(assets/images/mtsbg1.jpg) center center;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    font-family: 'Bangers';
+}
+html {
+    height: 100%
 }
 
-.jumbotron {
-  text-align: center;
-  border-color: bg-transparent;
+header {
+    padding: 20px;
 }
 
-.h1 {
-  border: none
+header h3 {
+    color: #d9dcd6;
+    display: inline-block;
+    font-size: 48px;
 }
 
-.card-body {
-margin: 10px;
+.card {
+    margin:auto;
+    border: none;
 }
 
-#answersBox {
-  border: none
-}
-
-#questions {
-  border: none
+.choices{
+    text-align: center;
 }
 
 
-button {
-  padding: 50px;
-  margin-bottom: 10px;
-  cursor: pointer;
-  width: 20%;
-  border-radius: 12px;
-  font-size: 20px;
-  text-align: center;
-  background-color: #b8688d;
-  color: white;
-  border-style: groove;
-  border-color: rgb(61, 39, 52);
-}
-
-.boxes {
-  text-align: center;
-}
-
-#highScore {
-  text-align: center;
-  border-radius: 12px;
-}
+.button {
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.8);
+    background: #b8688d;
+    border-color: rgb(61, 39, 52);
+    padding: 15px 40px;
+    border-radius: 4px;
+    font-weight: normal;
+    text-transform: uppercase;
+    transition: all 0.2s ease-in-out;
+  }
+  .button:hover {
+    color: rgba(255, 255, 255, 1);
+    background: #b8688d7a;
+    box-shadow: 0 5px 15px rgba(145, 92, 182, .4);
+  }
